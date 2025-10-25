@@ -100,5 +100,5 @@ Após executar este comando, copie uma das URL que irão aparecer no final do co
         http://localhost:8888/tree?token=483170b8244ed08718543f38acbde5cdeba5ea76b1d41405
         http://127.0.0.1:8888/tree?token=483170b8244ed08718543f38acbde5cdeba5ea76b1d41405
 
-Cole esta URL no Google Colab, que será solicitad quando executar o comando `Conectar ao ambiente de execução local`
+Cole esta URL no Google Colab, que será solicitada quando o comando `Conectar ao ambiente de execução local` for executado.
 
