@@ -66,15 +66,35 @@ Este é o momento de instalar tudo o que você precisa para a conexão com o Col
 # Garante que o pip está atualizado dentro do venv
 pip install --upgrade pip
 
-# Instala os pacotes necessários para o Jupyter  e a conexão do Colab
+# Instala os pacotes necessários para o Jupyter e a conexão do Colab, nas versões adequadas
 
-pip install "notebook==6.5.5" "jupyterlab==3.6.8"
+pip install \
+    "notebook==6.5.5" \
+    "jupyter_server==1.24.0" \
+    "jupyter_client==7.4.9" \
+    "nbclassic==0.5.5" \
+    "jupyter_core==5.5.0" \
+    "traitlets==5.9.0" \
+    "tornado==6.2"
+```
+### 3\. Instalar e habilitar o pacote do Colab
+
+```bash
 pip install jupyter_http_over_ws
-python -m ipykernel install --user --name=python3 --display-name="Python (Colab Local)"
-jupyter serverextension enable --py jupyter_http_over_ws
-jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
+python -m jupyter serverextension enable --py jupyter_http_over_ws
+python -m jupyter nbextension install --py jupyter_http_over_ws
+python -m jupyter nbextension enable --py jupyter_http_over_ws
 ```
 
+### 4\. Rodar o servidor Jupyter compatível com o Colab
+
+```bash
+jupyter notebook \
+  --NotebookApp.allow_origin='https://colab.research.google.com' \
+  --NotebookApp.port_retries=0 \
+  --port=8888 \
+  --NotebookApp.allow_credentials=True
+````
 
 ### 4\. Saia do Ambiente (Quando terminar)
 
@@ -88,21 +108,7 @@ O `(colab-env)` desaparecerá do seu prompt.
 
 -----
 
-### Resumo: O Fluxo de Trabalho Completo
-
-Para resolver seu problema original de conexão com o Colab, este é o fluxo completo usando seu novo `venv`:
-
-1.  `cd /pasta/do/projeto`
-2.  `python3 -m venv colab-env`
-3.  `source colab-env/bin/activate` (ou o comando equivalente do Windows)
-4.  `pip install jupyter jupyter_http_over_ws ipykernel`
-5.  `python -m ipykernel install --user --name=python3 --display-name="Python (Colab Local)"`
-6.  `jupyter serverextension enable --py jupyter_http_over_ws`
-8.  `jupyter notebook \
-    --NotebookApp.allow_origin='https://colab.research.google.com' \
-    --port=8888 \
-    --NotebookApp.port_retries=0 \
-    --NotebookApp.allow_credentials=True`
+### Conexão Final
 
 Após executar este comando, copie uma das URL que irão aparecer no final do comando, tais como:
 
