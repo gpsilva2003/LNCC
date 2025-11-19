@@ -67,9 +67,15 @@ Este é o momento de instalar tudo o que você precisa para a conexão com o Col
 # Garante que o pip está atualizado dentro do venv
 pip install --upgrade pip
 
-# Instala os pacotes necessários para o Jupyter e a conexão do Colab
-pip install jupyter jupyter_http_over_ws ipykernel
+# Instala os pacotes necessários para o Jupyter  e a conexão do Colab
+
+pip install "notebook==6.5.5" "jupyterlab==3.6.8"
+pip install jupyter_http_over_ws ipykernel
+python -m ipykernel install --user --name=python3 --display-name="Python (Colab Local)"
+jupyter serverextension enable --py jupyter_http_over_ws
+jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
 ```
+
 
 ### 4\. Saia do Ambiente (Quando terminar)
 
@@ -92,7 +98,7 @@ Para resolver seu problema original de conexão com o Colab, este é o fluxo com
 3.  `source colab-env/bin/activate` (ou o comando equivalente do Windows)
 4.  `pip install jupyter jupyter_http_over_ws ipykernel`
 5.  `python -m ipykernel install --user --name=python3 --display-name="Python (Colab Local)"`
-6.  `jupyter server extension enable --py jupyter_http_over_ws`
+6.  `jupyter serverextension enable --py jupyter_http_over_ws`
 7.  `jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0`
 
 Após executar este comando, copie uma das URL que irão aparecer no final do comando, tais como:
