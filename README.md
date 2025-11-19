@@ -69,7 +69,7 @@ pip install --upgrade pip
 # Instala os pacotes necessários para o Jupyter  e a conexão do Colab
 
 pip install "notebook==6.5.5" "jupyterlab==3.6.8"
-pip install jupyter_http_over_ws ipykernel
+pip install jupyter_http_over_ws
 python -m ipykernel install --user --name=python3 --display-name="Python (Colab Local)"
 jupyter serverextension enable --py jupyter_http_over_ws
 jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
