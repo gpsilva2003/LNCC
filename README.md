@@ -12,10 +12,9 @@ Primeiro, abra seu terminal e navegue (usando `cd`) para a pasta principal do se
 
 Uma vez no diretório desejado, execute o comando para **criar** o ambiente. O comando usa o módulo `venv` do Python. É comum dar ao ambiente o nome de `venv`, `.venv` ou um nome descritivo.
 
-Vamos usar `colab-env` como exemplo:
+Vamos usar `colab-env` como exemplo ( O "python3" pode ser apenas "python" dependendo do seu sistema):
 
 ```bash
-# O "python3" pode ser apenas "python" dependendo do seu sistema
 python3 -m venv colab-env
 ```
 
