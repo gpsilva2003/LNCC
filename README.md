@@ -6,7 +6,7 @@ Um `venv` cria uma "bolha" isolada para seu projeto. Tudo que você instalar com
 
 Aqui estão os passos. Vou dividir por sistema operacional, pois o comando de "ativação" é diferente.
 
-### 1\. Escolha um Local e Crie o Ambiente
+## 1\. Escolha um Local e Crie o Ambiente
 
 Primeiro, abra seu terminal e navegue (usando `cd`) para a pasta principal do seu projeto (ou onde você quer que o ambiente fique guardado).
 
@@ -20,7 +20,9 @@ python3 -m venv colab-env
 
 Isso criará uma nova pasta chamada `colab-env` no diretório atual. Dentro dela estarão cópias do Python e do pip prontas para serem usadas.
 
-### 2\. Ative o Ambiente (O Passo Mais Importante)
+-----
+
+## 2\. Ative o Ambiente (O Passo Mais Importante)
 
 Depois de criar, você precisa "entrar" ou **ativar** o ambiente. O terminal precisa saber que você quer usar o Python e o pip de dentro da pasta `colab-env`, e não os do sistema.
 
@@ -44,8 +46,6 @@ source colab-env/bin/activate
 
 *(Observação: Se o PowerShell der um erro sobre "execução de scripts", você talvez precise rodar `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` e tentar novamente).*
 
------
-
 **Como saber se funcionou?**
 
 Seu *prompt* do terminal mudará. Ele mostrará o nome do ambiente entre parênteses, algo assim:
@@ -56,7 +56,9 @@ ou
 
 Isso confirma que seu ambiente está **ativo**.
 
-### 3\. Use o Ambiente (Instale suas coisas)
+-----
+
+## 3\. Use o Ambiente (Instale suas coisas)
 
 Agora que o ambiente está ativo, qualquer comando `pip` que você rodar instalará pacotes *dentro* da pasta `colab-env`.
 
@@ -77,7 +79,8 @@ pip install \
     "traitlets==5.9.0" \
     "tornado==6.2"
 ```
-### 3\. Instalar e habilitar o pacote do Colab
+
+## 4\. Instalar e habilitar o pacote do Colab
 
 ```bash
 pip install jupyter_http_over_ws
@@ -86,7 +89,7 @@ python -m jupyter nbextension install --py jupyter_http_over_ws
 python -m jupyter nbextension enable --py jupyter_http_over_ws
 ```
 
-### 4\. Rodar o servidor Jupyter compatível com o Colab
+## 5\. Rodar o servidor Jupyter compatível com o Colab
 
 ```bash
 jupyter notebook \
@@ -96,7 +99,7 @@ jupyter notebook \
   --NotebookApp.allow_credentials=True
 ````
 
-### 4\. Saia do Ambiente (Quando terminar)
+## 6\. Saia do Ambiente (Quando terminar)
 
 Quando você terminar seu trabalho e quiser voltar a usar o Python normal do seu sistema, basta digitar:
 
